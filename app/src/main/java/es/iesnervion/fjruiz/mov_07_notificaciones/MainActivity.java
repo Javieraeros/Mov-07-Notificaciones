@@ -15,11 +15,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this);
 
         startService(new Intent(this, FirebaseNotification.class));
         startService(new Intent(this, GetToken.class));
+
+        /*NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+
+
 
         mBuilder.setContentTitle("My notification");
         mBuilder.setContentText("Hello World!");
@@ -47,6 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         // mId allows you to update the notification later on.
         int mId=0;
-        mNotificationManager.notify(mId, mBuilder.build());
+        mNotificationManager.notify(mId, mBuilder.build());*/
     }
 }

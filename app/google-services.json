@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "758920358906-tt47pusi5q4sae3uq6128q5rm2b9n2rc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "es.iesnervion.fjruiz.mov_07_notificaciones",
+            "certificate_hash": "D42B6A19893AE801F7E5CAB0BB72F79B12C1935C"
+          }
+        },
+        {
           "client_id": "758920358906-8cuc2sq3q2a22mj7c1k63htktdkvrjbj.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758920358906-8cuc2sq3q2a22mj7c1k63htktdkvrjbj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
