@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "758920358906",
+    "firebase_url": "https://pruebanotificaciones-87836.firebaseio.com",
+    "project_id": "pruebanotificaciones-87836",
+    "storage_bucket": "pruebanotificaciones-87836.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758920358906:android:6b5db76f2640bac6",
+        "android_client_info": {
+          "package_name": "es.iesnervion.fjruiz.mov_07_notificaciones"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758920358906-8cuc2sq3q2a22mj7c1k63htktdkvrjbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSuwjqWaI_YoeYJMV69KcV-Zp9kKB35qw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

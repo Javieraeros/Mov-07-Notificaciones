@@ -18,9 +18,12 @@ public class MainActivity extends AppCompatActivity {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this);
 
+        startService(new Intent(this, FirebaseNotification.class));
+        startService(new Intent(this, GetToken.class));
+
         mBuilder.setContentTitle("My notification");
         mBuilder.setContentText("Hello World!");
-        mBuilder.setSmallIcon(R.drawable.ic_lightbulb_outline_black_24dp);
+        mBuilder.setSmallIcon(R.drawable.ic_lightbulb_outline_white_24dp);
         mBuilder.setAutoCancel(true);
         // Creates an explicit intent for an Activity in your app
         Intent resultIntent = new Intent(this, ResultActivity.class);
