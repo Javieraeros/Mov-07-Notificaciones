@@ -1,13 +1,10 @@
 package es.iesnervion.fjruiz.mov_07_notificaciones;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+//TODO Usar api rest que haga para el ejemplo de las contraseñas (SYP-07-Seguridad)
 
 public class MainActivity extends AppCompatActivity {
 
