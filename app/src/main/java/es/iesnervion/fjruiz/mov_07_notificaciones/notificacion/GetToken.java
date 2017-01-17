@@ -1,4 +1,4 @@
-package es.iesnervion.fjruiz.mov_07_notificaciones;
+package es.iesnervion.fjruiz.mov_07_notificaciones.notificacion;
 
 
 import android.util.Log;

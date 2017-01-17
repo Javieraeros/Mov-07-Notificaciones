@@ -1,12 +1,20 @@
 package es.iesnervion.fjruiz.mov_07_notificaciones;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import es.iesnervion.fjruiz.mov_07_notificaciones.notificacion.*;
+import es.iesnervion.fjruiz.mov_07_notificaciones.permisos.Permiso;
+
 //TODO Usar api rest que haga para el ejemplo de las contraseñas (SYP-07-Seguridad)
 
+//TODO Mirar como puedo mostrar la notificación estando en primer plano la aplicación
+
 public class MainActivity extends AppCompatActivity {
+
+    boolean tengoInternet=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
         startService(new Intent(this, FirebaseNotification.class));
         startService(new Intent(this, GetToken.class));
+
+        Permiso miPermiso=new Permiso(this);
+        miPermiso.getInternet(0);
+        //region Autonotificación
 
         /*NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this);
@@ -48,5 +60,19 @@ public class MainActivity extends AppCompatActivity {
         // mId allows you to update the notification later on.
         int mId=0;
         mNotificationManager.notify(mId, mBuilder.build());*/
+
+        //endregion
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        // If request is cancelled, the result arrays are empty.
+        if (grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            tengoInternet=true;
+        } else {
+            tengoInternet=false;
+        }
     }
 }
