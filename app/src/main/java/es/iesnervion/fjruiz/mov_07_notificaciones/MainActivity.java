@@ -4,7 +4,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import es.iesnervion.fjruiz.mov_07_notificaciones.Model.Persona;
+import es.iesnervion.fjruiz.mov_07_notificaciones.clienteApi.InterfazComunicadora;
+import es.iesnervion.fjruiz.mov_07_notificaciones.clienteApi.InterfazComunicadora2;
+import es.iesnervion.fjruiz.mov_07_notificaciones.clienteApi.MiclienteApi;
 import es.iesnervion.fjruiz.mov_07_notificaciones.notificacion.*;
 import es.iesnervion.fjruiz.mov_07_notificaciones.permisos.Permiso;
 
@@ -12,7 +17,7 @@ import es.iesnervion.fjruiz.mov_07_notificaciones.permisos.Permiso;
 
 //TODO Mirar como puedo mostrar la notificación estando en primer plano la aplicación
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements InterfazComunicadora2,InterfazComunicadora {
 
     boolean tengoInternet=false;
 
@@ -62,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
         mNotificationManager.notify(mId, mBuilder.build());*/
 
         //endregion
+
+        MiclienteApi miCliente=new MiclienteApi(this);
+        miCliente.getPersonas();
     }
 
     @Override
@@ -74,5 +82,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tengoInternet=false;
         }
+    }
+
+    public void cuandoAcabe2(Persona[] miArray){
+        Toast.makeText(this,miArray[0].toString(),Toast.LENGTH_LONG).show();
+    }
+
+    public void cuandoAcabe(Persona[] miArray){ //Tal vez no necesario
+
     }
 }
