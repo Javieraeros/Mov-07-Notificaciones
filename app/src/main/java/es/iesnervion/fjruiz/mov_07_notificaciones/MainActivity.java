@@ -90,5 +90,6 @@ public class MainActivity extends AppCompatActivity implements InterfazComunicad
 
     public void cuandoAcabe(Persona[] miArray){ //Tal vez no necesario
 
+        //Toast.makeText(this,miArray[0].toString(),Toast.LENGTH_LONG).show();
     }
 }

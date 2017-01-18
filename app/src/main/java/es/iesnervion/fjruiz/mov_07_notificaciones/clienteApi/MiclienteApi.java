@@ -27,7 +27,7 @@ public class MiclienteApi implements InterfazComunicadora {
                     .build();
 
             service=miRetrofit.create(RestInterface.class);
-            PersonaCallback pc=new PersonaCallback(this.miContexto);
+            pc=new PersonaCallback(this.miContexto);
         } else {
             throw new RuntimeException(miContexto.toString()
                     + " must implement InterfazComunicadora2");

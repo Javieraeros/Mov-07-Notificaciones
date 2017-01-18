@@ -41,7 +41,7 @@ public class Persona implements Parcelable{
 
     @Override
     public String toString() {
-        return id+" "+nombre+" "+password;
+        return this.id +" "+this.nombre +" "+ password;
     }
 
     @Override
