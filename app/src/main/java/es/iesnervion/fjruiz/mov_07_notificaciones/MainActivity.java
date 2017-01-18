@@ -17,7 +17,7 @@ import es.iesnervion.fjruiz.mov_07_notificaciones.permisos.Permiso;
 
 //TODO Mirar como puedo mostrar la notificación estando en primer plano la aplicación
 
-public class MainActivity extends AppCompatActivity implements InterfazComunicadora2,InterfazComunicadora {
+public class MainActivity extends AppCompatActivity implements InterfazComunicadora {
 
     boolean tengoInternet=false;
 
@@ -84,12 +84,9 @@ public class MainActivity extends AppCompatActivity implements InterfazComunicad
         }
     }
 
-    public void cuandoAcabe2(Persona[] miArray){
-        Toast.makeText(this,miArray[0].toString(),Toast.LENGTH_LONG).show();
-    }
 
     public void cuandoAcabe(Persona[] miArray){ //Tal vez no necesario
 
-        //Toast.makeText(this,miArray[0].toString(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this,miArray[0].toString(),Toast.LENGTH_LONG).show();
     }
 }

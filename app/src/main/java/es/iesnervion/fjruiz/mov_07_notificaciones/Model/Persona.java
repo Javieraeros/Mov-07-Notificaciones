@@ -4,9 +4,16 @@ package es.iesnervion.fjruiz.mov_07_notificaciones.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Persona implements Parcelable{
+    @SerializedName("Id")
     private int id;
+
+    @SerializedName("Nombre")
     private String nombre;
+
+    @SerializedName("Password")
     private String password;
 
     public Persona(int id, String nombre, String password) {

@@ -28,7 +28,6 @@ public class PersonaCallback implements Callback<List<Persona>> {
     @Override
     public void onResponse(Call<List<Persona>> call, Response<List<Persona>> response) {
         List<Persona> miLista=response.body();
-        Toast.makeText(this.miContexto,miLista.get(0).toString(),Toast.LENGTH_LONG).show();
         Persona[] miArrayPersona=new Persona[miLista.size()];
         miLista.toArray(miArrayPersona);
         enviador.cuandoAcabe(miArrayPersona);
@@ -36,6 +35,6 @@ public class PersonaCallback implements Callback<List<Persona>> {
 
     @Override
     public void onFailure(Call<List<Persona>> call, Throwable t) {
-        Toast.makeText(miContexto,"Argo ha fallao picha",Toast.LENGTH_SHORT);
+        Toast.makeText(miContexto,"Argo ha fallao picha",Toast.LENGTH_SHORT).show();
     }
 }
