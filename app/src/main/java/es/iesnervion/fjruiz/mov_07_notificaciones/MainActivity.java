@@ -1,14 +1,18 @@
 package es.iesnervion.fjruiz.mov_07_notificaciones;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import es.iesnervion.fjruiz.mov_07_notificaciones.Model.Persona;
+import es.iesnervion.fjruiz.mov_07_notificaciones.SQLite.Contrato;
+import es.iesnervion.fjruiz.mov_07_notificaciones.SQLite.JaviDB;
 import es.iesnervion.fjruiz.mov_07_notificaciones.clienteApi.InterfazComunicadora;
-import es.iesnervion.fjruiz.mov_07_notificaciones.clienteApi.InterfazComunicadora2;
 import es.iesnervion.fjruiz.mov_07_notificaciones.clienteApi.MiclienteApi;
 import es.iesnervion.fjruiz.mov_07_notificaciones.notificacion.*;
 import es.iesnervion.fjruiz.mov_07_notificaciones.permisos.Permiso;
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements InterfazComunicad
         //endregion
 
         MiclienteApi miCliente=new MiclienteApi(this);
-        miCliente.getPersonas();
+        miCliente.getPersonas("Basic UHJ1ZWJhOjEyMzQ=");
     }
 
     @Override
@@ -85,8 +89,24 @@ public class MainActivity extends AppCompatActivity implements InterfazComunicad
     }
 
 
-    public void cuandoAcabe(Persona[] miArray){ //Tal vez no necesario
+    public void cuandoAcabe(Persona[] miArray){
+        JaviDB miDB=new JaviDB(getApplicationContext());
+        SQLiteDatabase db=miDB.getWritableDatabase();
+        int numeroFilas=0;
+        for(int i=0;i<miArray.length;i++){
+            ContentValues miInsert=new ContentValues();
+            miInsert.put(Contrato.Persona.NOMBRE,miArray[0].getNombre());
+            db.insert(Contrato.Persona.TABLA,null,miInsert);
 
-        Toast.makeText(this,miArray[0].toString(),Toast.LENGTH_LONG).show();
+            /*db.execSQL("Insert into "+ Contrato.Persona.TABLA+
+                    "("+Contrato.Persona.NOMBRE+")"+
+                    " VALUES('"+miArray[0].getNombre()+"');");*/
+        }
+        Cursor resultado=db.rawQuery("Select count(*) from "+Contrato.Persona.TABLA,null);
+        if(resultado.moveToFirst()){
+            numeroFilas=resultado.getInt(0);
+        }
+        resultado.close();
+        Toast.makeText(this,numeroFilas+"",Toast.LENGTH_SHORT).show();
     }
 }

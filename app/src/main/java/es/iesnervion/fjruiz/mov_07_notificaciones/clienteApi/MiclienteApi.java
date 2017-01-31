@@ -19,15 +19,15 @@ public class MiclienteApi {
 
     public MiclienteApi(Context miContexto){
         this.miContexto=miContexto;
-        miRetrofit=new Retrofit.Builder().baseUrl("https://personas.fjruiz.ciclo.iesnervion.es").
-                addConverterFactory(GsonConverterFactory.create())
+        miRetrofit=new Retrofit.Builder().baseUrl("https://personas.fjruiz.ciclo.iesnervion.es")
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         service=miRetrofit.create(RestInterface.class);
         pc=new PersonaCallback(this.miContexto);
     }
 
-    public void getPersonas(){
-        service.getPersonas().enqueue(pc);
+    public void getPersonas(String auth){
+        service.getPersonas(auth).enqueue(pc);
     }
 }
